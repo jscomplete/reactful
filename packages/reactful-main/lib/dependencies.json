@@ -1,0 +1,40 @@
+{
+  "main": [
+    "babel-cli",
+    "babel-loader",
+    "babel-polyfill",
+    "babel-preset-env",
+    "babel-preset-react",
+    "babel-preset-stage-2",
+    "body-parser",
+    "ejs",
+    "express",
+    "morgan",
+    "pm2",
+    "react",
+    "react-dom",
+    "serialize-javascript",
+    "webpack",
+    "webpack-chunk-hash"
+  ],
+  "full": [
+    "axios",
+    "immutable",
+    "redux",
+    "react-redux",
+    "redux-thunk"
+  ],
+  "dev": [
+    "babel-eslint",
+    "concurrently",
+    "eslint",
+    "eslint-plugin-react",
+    "jest",
+    "nodemon",
+    "react-test-renderer",
+    "reactful-commands",
+    "prettier-eslint-cli",
+    "husky",
+    "lint-staged"
+  ]
+}
