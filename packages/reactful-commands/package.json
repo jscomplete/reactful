@@ -1,6 +1,6 @@
 {
   "name": "reactful-commands",
-  "version": "0.3.12",
+  "version": "0.4.0",
   "description": "Commands for the Reactful CLI",
   "repository": "jscomplete/reactful",
   "author": "Samer Buna <samer@jscomplete.com>",

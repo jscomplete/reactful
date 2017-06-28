@@ -1,6 +1,6 @@
 {
   "name": "reactful",
-  "version": "0.3.12",
+  "version": "0.4.0",
   "description": "An opinionated CLI for full-stack server-rendered React applications",
   "repository": "jscomplete/reactful",
   "author": "Samer Buna <samer@jscomplete.com>",
