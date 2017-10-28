@@ -7,6 +7,8 @@
     "babel-preset-react",
     "babel-preset-stage-2",
     "body-parser",
+    "css-loader",
+    "cross-env",
     "ejs",
     "express",
     "morgan",
@@ -14,8 +16,12 @@
     "react",
     "react-dom",
     "serialize-javascript",
+    "style-loader",
+    "sass-loader",
+    "node-sass",
     "webpack",
-    "webpack-chunk-hash"
+    "webpack-chunk-hash",
+    "extract-text-webpack-plugin"
   ],
   "full": [
     "axios",
@@ -26,15 +32,13 @@
   ],
   "dev": [
     "babel-eslint",
+    "babel-watch",
     "concurrently",
     "eslint",
     "eslint-plugin-react",
     "jest",
-    "nodemon",
     "react-test-renderer",
     "reactful-commands",
-    "prettier-eslint-cli",
-    "husky",
-    "lint-staged"
+    "prettier-eslint-cli"
   ]
 }

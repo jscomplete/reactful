@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 const { spawn } = require('child_process');
-const isWin = process.platform === 'win32';
 
 module.exports = function reactfulInit(config) {
   return new Promise((resolve, reject) => {
@@ -11,30 +10,24 @@ module.exports = function reactfulInit(config) {
       name: appName,
       version: '0.1.0',
       private: true,
-      license: 'BSD-3-Clause',
       scripts: {
-        format: 'prettier-eslint "src/**/*.js" --write --trailing-comma es5',
-        nodemon: isWin
-          ? 'cmd /c "set NODE_PATH=./src&& nodemon --exec babel-node src/server/server.js"'
-          : 'NODE_PATH=./src nodemon --exec babel-node src/server/server.js',
+        eslint: 'eslint "src/**/*.js"',
+        format:
+          'prettier-eslint "src/**/*.js" "src/**/*.scss" --write --trailing-comma es5',
+        dev:
+          'cross-env NODE_PATH=./src babel-watch src/server/server.js -x .reactful.json',
         webpack: 'webpack -wd',
-        start: `concurrently "${pmCommand} run webpack -s" "${pmCommand} run nodemon -s"`,
-        test: 'jest --watch',
+        start: `concurrently "${pmCommand} run webpack" "${pmCommand} run dev"`,
+        test: 'jest',
         'verify-tests': 'jest --coverage',
-        'build-react': isWin
-          ? 'cmd /c "set NODE_ENV=production&& webpack --progress -p"'
-          : 'NODE_ENV=production webpack --progress -p',
+        'build-react': 'cross-env NODE_ENV=production webpack --progress -p',
         'build-node': 'babel src -d build --copy-files',
         build: `${pmCommand} install && ${pmCommand} run build-react && ${pmCommand} run build-node`,
-        stop: `pm2 stop ${appName}Prod`,
-        prod: isWin
-          ? `cmd /c "set NODE_ENV=production&& set NODE_PATH=./build&& pm2 start -i max build/server/server.js --update-env --name ${appName}Prod"`
-          : `NODE_ENV=production NODE_PATH=./build pm2 start -i max build/server/server.js --update-env --name ${appName}Prod`,
-        reload: `pm2 reload --update-env ${appName}Prod`,
-        logs: `pm2 logs ${appName}Prod`,
+        prod: `cross-env NODE_ENV=production NODE_PATH=./build pm2 start -i max build/server/server.js --update-env --name ${appName}Prod`,
+        'prod-stop': `pm2 stop ${appName}Prod`,
+        'prod-reload': `pm2 reload --update-env ${appName}Prod`,
+        'prod-logs': `pm2 logs ${appName}Prod`,
         _reactful_commands: '_reactful_commands',
-        precommit: 'lint-staged',
-        prepush: 'verify-tests',
       },
       babel: {
         presets: [
@@ -45,9 +38,7 @@ module.exports = function reactfulInit(config) {
       },
       jest: {
         modulePaths: ['./src'],
-      },
-      'lint-staged': {
-        '*.js': ['format', 'git add'],
+        testPathIgnorePatterns: ['/node_modules/'],
       },
     };
 
@@ -58,10 +49,19 @@ module.exports = function reactfulInit(config) {
 
     fs.writeFileSync(
       path.resolve(appPath, '.gitignore'),
-      'node_modules/\npublic/bundles/\nbuild/\ncoverage/\n.reactful.json'
+      'node_modules/\npublic/bundles/\nbuild/\ncoverage/\n.reactful.json\n.env\n.vscode/'
     );
 
-    fs.writeFileSync(path.resolve(appPath, '.reactful.json'), '{}');
+    const reactfulJson = {
+      main: 'main.js',
+      styles: 'styles.js',
+      vendor: 'vendor.js',
+    };
+
+    fs.writeFileSync(
+      path.resolve(appPath, '.reactful.json'),
+      JSON.stringify(reactfulJson, null, 2)
+    );
 
     const {
       main: mainDeps,

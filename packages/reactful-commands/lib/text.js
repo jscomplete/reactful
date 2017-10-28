@@ -1,36 +1,62 @@
 /* eslint indent: "off" */
 
-exports.rcc = (componentName, pure = true) =>
+exports.rcc = (componentName) =>
   `import React from 'react';
 
-class ${componentName} extends React.${pure ? 'Pure' : ''}Component {
+export default class ${componentName} extends React.Component {
   render() {
     return (
       <div>
       </div>
     );
   }
-}
+}`;
 
-export default ${componentName};`;
+exports.rpc = (componentName) =>
+  `import React from 'react';
+
+export default class ${componentName} extends React.PureComponent {
+  render() {
+    return (
+      <div>
+      </div>
+    );
+  }
+}`;
 
 exports.rfc = (componentName) =>
   `import React from 'react';
 
-const ${componentName} = (props) => {
+export default const ${componentName} = (props) => {
   return (
     <div>
     </div>
   );
-};
+};`;
 
-export default ${componentName};`;
-
-exports.jestSnap = (componentName) =>
+exports.rsc = (componentName) =>
   `import React from 'react';
-import ${componentName} from '../${componentName}';
+import { ConnectedComponent } from 'state-components';
 
+export default class ${componentName} extends ConnectedComponent {
+  static stateMap = [];
+  static actionsMap = {};
+
+  render() {
+    return (
+      <div>
+      </div>
+    );
+  }
+}`;
+
+exports.jest = {};
+
+exports.jest.default = (componentName) =>
+  `import React from 'react';
 import renderer from 'react-test-renderer';
+
+import ${componentName} from './${componentName}';
 
 describe('${componentName}', () => {
 
@@ -42,4 +68,21 @@ describe('${componentName}', () => {
     expect(tree).toMatchSnapshot();
   });
 
+});`;
+
+exports.jest.rsc = (componentName) =>
+  `import React from 'react';
+import { shallowRender } from 'immutable-state-components/helpers';
+
+import ${componentName} from './${componentName}';
+
+describe('${componentName}', () => {
+  it('renders correctly', () => {
+    const wrapper = shallowRender(<${componentName} />, {
+      initialData: {},
+      initialState: {},
+    });
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });`;

@@ -1,12 +1,10 @@
 const path = require('path');
 const fs = require('fs');
-const { rcc, rfc, jestSnap } = require('../lib/text');
+const text = require('../lib/text');
 
 module.exports = function createComponent(componentType, componentName) {
-  const componentCode =
-    componentType === 'function'
-      ? rfc(componentName)
-      : rcc(componentName, componentType === 'pure');
+  const componentCode = text[componentType];
+  const jestCode = text.jest[componentType] || text.jest.default;
 
   return new Promise((resolve, reject) => {
     try {
@@ -16,16 +14,15 @@ module.exports = function createComponent(componentType, componentName) {
         `${componentName}.js`
       );
       console.info(`Generating ${path.relative('.', componentFile)}`);
-      fs.writeFileSync(componentFile, componentCode);
+      fs.writeFileSync(componentFile, componentCode(componentName));
 
       const componentTestFile = path.resolve(
         'src',
         'components',
-        '__tests__',
-        `${componentName}Test.js`
+        `${componentName}.test.js`
       );
       console.info(`Generating ${path.relative('.', componentTestFile)}`);
-      fs.writeFileSync(componentTestFile, jestSnap(componentName));
+      fs.writeFileSync(componentTestFile, jestCode(componentName));
 
       console.info('✨  Done.');
       resolve();

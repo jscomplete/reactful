@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title><%- pageTitle %></title>
+  <title><%- pageData.title %></title>
+  <link rel="stylesheet" href="<%- gStyleSheet -%>">
+  <link rel="shortcut icon" href="/favicon.ico" />
   <script type="text/javascript">
-    window.REACTFUL__INITIAL_DATA = <%- serialize(initialData, { isJSON: true }); %>
+    window.__R_DATA = <%- serialize({ initialData }, { isJSON: true }); %>
   </script>
 </head>
 <body>
   <div id="root"><%- initialMarkup -%></div>
-  <script src="/bundles/<%- gVars['vendor'] -%>" charset="utf-8"></script>
-  <script src="/bundles/<%- gVars['main'] -%>" charset="utf-8"></script>
+  <script src="/bundles/<%- gVars['vendor'] -%>" type="text/javascript"></script>
+  <script src="/bundles/<%- gVars['main'] -%>" type="text/javascript"></script>
 </body>
 </html>

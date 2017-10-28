@@ -12,6 +12,9 @@ const initialData = {
 const appStore = configStore(initialData);
 
 export default async function serverRenderer() {
+  const pageData = {
+    title: `Hello ${initialData.appName}`,
+  };
   return Promise.resolve({
     initialData,
     initialMarkup: ReactDOMServer.renderToString(
@@ -19,6 +22,6 @@ export default async function serverRenderer() {
         <App />
       </Provider>
     ),
-    pageTitle: `Hello ${initialData.appName}`,
+    pageData,
   });
 }

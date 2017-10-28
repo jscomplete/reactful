@@ -7,9 +7,16 @@ export default async function serverRenderer() {
   const initialData = {
     appName: 'Reactful',
   };
+
+  const pageData = {
+    title: `Hello ${initialData.appName}`,
+  };
+
   return Promise.resolve({
     initialData,
-    initialMarkup: ReactDOMServer.renderToString(<App {...initialData} />),
-    pageTitle: `Hello ${initialData.appName}`,
+    initialMarkup: ReactDOMServer.renderToString(
+      <App initialData={initialData} />
+    ),
+    pageData,
   });
 }

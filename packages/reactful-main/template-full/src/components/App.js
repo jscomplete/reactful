@@ -1,8 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { syncAction, asyncAction } from 'store/actions';
 
 export class App extends React.PureComponent {
+  static propTypes = {
+    appName: PropTypes.string.isRequired,
+    syncAction: PropTypes.func.isRequired,
+    asyncAction: PropTypes.func.isRequired,
+    currentError: PropTypes.string,
+    message: PropTypes.string,
+  };
+
   render() {
     return (
       <div>

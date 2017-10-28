@@ -8,11 +8,11 @@ module.exports = function commandExists(command) {
       shell: true,
     });
 
-    child.on('close', function childClose(code) {
+    child.on('close', (code) => {
       resolve(code === 0);
     });
 
-    child.on('error', function childError(err) {
+    child.on('error', (err) => {
       reject(err);
     });
   });

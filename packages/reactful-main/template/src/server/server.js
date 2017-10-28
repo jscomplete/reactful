@@ -18,9 +18,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.locals.serialize = serialize;
-app.locals.gVars = require('../../.reactful.json');
+app.locals.gStyleSheet = '/styles/index.css';
+try {
+  app.locals.gVars = require('../../.reactful.json');
+  if (Array.isArray(app.locals.gVars['styles'])) {
+    app.locals.gStyleSheet = `/bundles/${app.locals.gVars['styles'][1]}`;
+  }
+} catch (err) {
+  app.locals.gVars = {};
+}
 
-app.get('/', async function slashHandler(req, res) {
+app.get('/', async (req, res) => {
   try {
     const vars = await serverRenderer();
     res.render('index', vars);
@@ -30,7 +38,7 @@ app.get('/', async function slashHandler(req, res) {
   }
 });
 
-app.listen(config.port, config.host, function listenHandler() {
+app.listen(config.port, config.host, () => {
   fs.writeFileSync(
     path.resolve('.reactful.json'),
     JSON.stringify(

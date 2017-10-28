@@ -67,3 +67,8 @@ You can also use init-full to update an existing Redux/React app.
 - Create a New Function Component: ```react fc ComponentName```
 
 All of these commands will also create a jest snapshot test for the generated component.
+
+
+### License
+
+Reactful is [MIT licensed](./LICENSE).

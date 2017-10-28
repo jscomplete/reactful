@@ -1,21 +1,15 @@
 {
   "private": true,
+  "license": "MIT",
   "scripts": {
-    "format": "prettier-eslint \"packages/**/*.js\" --write --trailing-comma es5",
-    "precommit": "lint-staged",
-    "prepush": "verify-tests"
+    "format": "prettier-eslint \"packages/**/src/**/*.js\"  \"src/**/*.scss\" --write --trailing-comma es5"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.1.1",
-    "eslint-plugin-react": "^7.1.0",
-    "husky": "^0.14.1",
-    "lerna": "^2.0.0-rc.5",
-    "lint-staged": "^4.0.0",
-    "prettier": "^1.5.0",
-    "prettier-eslint-cli": "^4.1.1"
-  },
-  "lint-staged": {
-    "*.js": ["format", "git add"]
+    "babel-eslint": "^8.0.1",
+    "eslint": "^4.10.0",
+    "eslint-plugin-react": "^7.4.0",
+    "lerna": "^2.4.0",
+    "prettier": "^1.7.4",
+    "prettier-eslint-cli": "^4.4.0"
   }
 }
