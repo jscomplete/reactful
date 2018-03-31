@@ -22,8 +22,13 @@ async function runCommand(command) {
 }
 
 async function createComponent(componentType, ...args) {
+  const COMPONENT_MAPPING = {
+    'full' : 'rcc',
+    'pure' : 'rpc',
+    'function': 'rfc'
+  }
   try {
-    await require('../lib/create-component')(componentType, ...args);
+    await require('../lib/create-component')(COMPONENT_MAPPING[componentType], ...args);
   } catch (err) {
     console.error(err);
   }
