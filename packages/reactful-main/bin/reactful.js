@@ -19,13 +19,13 @@ async function reactfulCreate() {
 Usage:
     ${appPath === appName ? `\n    cd ${appName}\n` : ''}
     ### To start the app:
-    react start
+    reactful start
 
     ### Open the app in browser:
-    react open
+    reactful open
 
     ### To run tests:
-    react test
+    reactful test
 
 For problems and questions: https://slack.jscomplete.com/
     `);
