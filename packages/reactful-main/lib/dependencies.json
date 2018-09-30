@@ -23,13 +23,6 @@
     "webpack-chunk-hash",
     "extract-text-webpack-plugin"
   ],
-  "full": [
-    "axios",
-    "immutable",
-    "redux",
-    "react-redux",
-    "redux-thunk"
-  ],
   "dev": [
     "babel-eslint",
     "babel-watch",

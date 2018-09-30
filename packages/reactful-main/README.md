@@ -42,13 +42,6 @@ Once created, you'll see instructions on how to start it:
 
 The generated app is completely independent from the reactful package. At this point you can part ways with the reactful package and do your own thing, but if you follow the patterns initialized by the package, you can use a few handy commands from the global react command.
 
-### Create New Redux/React App
-
-    react new-full my-awesome-redux-app-name
-
-This will generate a Redux-configured full-stack React application with a state managed by Immutable.js. It will also render on both client and server.
-
-
 ### Update Existing React App
 
 While in a React application that's created with this tool, you can always revert things back the default configurations with the init command. You can also use this command in an empty directory.
@@ -57,8 +50,6 @@ While in a React application that's created with this tool, you can always rever
     react init
 
 If that directory already has files, reactful will ask you if you want to override them.
-
-You can also use init-full to update an existing Redux/React app.
 
 ### Creating Components
 
