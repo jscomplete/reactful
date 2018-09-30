@@ -14,7 +14,7 @@ app.use(morgan('common'));
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.locals.serialize = serialize;
@@ -42,7 +42,7 @@ app.listen(config.port, config.host, () => {
   fs.writeFileSync(
     path.resolve('.reactful.json'),
     JSON.stringify(
-      { ...app.locals.gVars, host: config.host, port: config.port },
+      {...app.locals.gVars, host: config.host, port: config.port},
       null,
       2
     )

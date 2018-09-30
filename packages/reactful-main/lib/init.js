@@ -1,11 +1,11 @@
 const path = require('path');
 const fs = require('fs');
-const { spawn } = require('child_process');
+const {spawn} = require('child_process');
 
 module.exports = function reactfulInit(config) {
   return new Promise((resolve, reject) => {
     const pmCommand = config.useYarn ? 'yarn' : 'npm';
-    const { appName, appPath } = config;
+    const {appName, appPath} = config;
     const packageJson = {
       name: appName,
       version: '0.1.0',
@@ -27,19 +27,15 @@ module.exports = function reactfulInit(config) {
         'prod-stop': `pm2 stop ${appName}Prod`,
         'prod-reload': `pm2 reload --update-env ${appName}Prod`,
         'prod-logs': `pm2 logs ${appName}Prod`,
-        _reactful_commands: '_reactful_commands',
+        _reactful_commands: '_reactful_commands'
       },
       babel: {
-        presets: [
-          'react',
-          ['env', { targets: { node: 'current' } }],
-          'stage-2',
-        ],
+        presets: ['react', ['env', {targets: {node: 'current'}}], 'stage-2']
       },
       jest: {
         modulePaths: ['./src'],
-        testPathIgnorePatterns: ['/node_modules/'],
-      },
+        testPathIgnorePatterns: ['/node_modules/']
+      }
     };
 
     fs.writeFileSync(
@@ -55,7 +51,7 @@ module.exports = function reactfulInit(config) {
     const reactfulJson = {
       main: 'main.js',
       styles: 'styles.js',
-      vendor: 'vendor.js',
+      vendor: 'vendor.js'
     };
 
     fs.writeFileSync(
@@ -63,15 +59,7 @@ module.exports = function reactfulInit(config) {
       JSON.stringify(reactfulJson, null, 2)
     );
 
-    const {
-      main: mainDeps,
-      dev: devDeps,
-      full: fullDeps,
-    } = require('./dependencies');
-
-    if (config.appType === 'full') {
-      mainDeps.push(...fullDeps);
-    }
+    const {main: mainDeps, dev: devDeps} = require('./dependencies');
 
     const installProdCmd = config.useYarn ? 'yarn add' : 'npm install --save';
     const installDevCmd = config.useYarn
@@ -87,7 +75,7 @@ module.exports = function reactfulInit(config) {
       {
         shell: true,
         stdio: 'inherit',
-        cwd: path.resolve(appPath),
+        cwd: path.resolve(appPath)
       }
     );
 

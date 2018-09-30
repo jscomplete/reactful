@@ -6,7 +6,7 @@ const config = {};
 
 async function reactfulCreate() {
   try {
-    const { appName, appPath } = config;
+    const {appName, appPath} = config;
     console.info(`\n***** Creating ${appName} app *****\n`);
 
     require('../lib/copy')(config);
@@ -46,6 +46,7 @@ async function main() {
   const commandExists = require('../lib/commandExists');
   config.useYarn = await commandExists('yarn');
   config.useGit = await commandExists('git');
+  config.appType = 'simple';
 
   const [firstArg, secondArg] = process.argv.slice(2);
 
@@ -54,25 +55,22 @@ async function main() {
     return;
   }
 
-  if (firstArg === 'init' || firstArg === 'init-full') {
+  if (firstArg === 'init') {
     config.appPath = '.';
     config.appName = path.basename(path.resolve('.'));
-    config.appType = firstArg === 'init' ? 'simple' : 'full';
-    return reactfulCreate();
   }
 
-  if (firstArg === 'new' || firstArg === 'new-full') {
+  if (firstArg === 'new') {
     config.appPath = config.appName = secondArg;
-    config.appType = firstArg === 'new' ? 'simple' : 'full';
-    return reactfulCreate();
   }
 
-  if (fs.existsSync(path.resolve('src', 'server', 'config.js'))) {
-    return forwardCommand(firstArg, secondArg);
-  }
+  if (!['init', 'new'].includes(firstArg)) {
+    if (fs.existsSync(path.resolve('src', 'server', 'config.js'))) {
+      return forwardCommand(firstArg, secondArg);
+    }
 
-  config.appPath = config.appName = firstArg;
-  config.appType = 'simple';
+    config.appPath = config.appName = firstArg;
+  }
 
   reactfulCreate();
 }
