@@ -50,10 +50,10 @@ async function main() {
 
   const [firstArg, secondArg] = process.argv.slice(2);
 
-  if (firstArg === 'jt') {
-    console.info(`Testing - ${new Date()}`);
-    return;
-  }
+  // if (firstArg === 'jt') {
+  //   console.info(`Testing - ${new Date()}`);
+  //   return;
+  // }
 
   if (firstArg === 'init') {
     config.appPath = '.';

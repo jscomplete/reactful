@@ -27,28 +27,12 @@ export default class ${componentName} extends React.PureComponent {
 exports.rfc = (componentName) =>
   `import React from 'react';
 
-export default const ${componentName} = (props) => {
+export default const ${componentName} = ({}) => {
   return (
     <div>
     </div>
   );
 };`;
-
-exports.rsc = (componentName) =>
-  `import React from 'react';
-import { ConnectedComponent } from 'state-components';
-
-export default class ${componentName} extends ConnectedComponent {
-  static stateMap = [];
-  static actionsMap = {};
-
-  render() {
-    return (
-      <div>
-      </div>
-    );
-  }
-}`;
 
 exports.jest = {};
 
@@ -68,21 +52,4 @@ describe('${componentName}', () => {
     expect(tree).toMatchSnapshot();
   });
 
-});`;
-
-exports.jest.rsc = (componentName) =>
-  `import React from 'react';
-import { shallowRender } from 'immutable-state-components/helpers';
-
-import ${componentName} from './${componentName}';
-
-describe('${componentName}', () => {
-  it('renders correctly', () => {
-    const wrapper = shallowRender(<${componentName} />, {
-      initialData: {},
-      initialState: {},
-    });
-
-    expect(wrapper).toMatchSnapshot();
-  });
 });`;

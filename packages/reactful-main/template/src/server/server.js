@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime';
 import fs from 'fs';
 import path from 'path';
 import express from 'express';
@@ -18,12 +19,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.locals.serialize = serialize;
-app.locals.gStyleSheet = '/styles/index.css';
 try {
   app.locals.gVars = require('../../.reactful.json');
-  if (Array.isArray(app.locals.gVars['styles'])) {
-    app.locals.gStyleSheet = `/bundles/${app.locals.gVars['styles'][1]}`;
-  }
 } catch (err) {
   app.locals.gVars = {};
 }

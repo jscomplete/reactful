@@ -4,22 +4,14 @@ const webpack = require('webpack');
 const WebpackChunkHash = require('webpack-chunk-hash');
 const isDev = process.env.NODE_ENV !== 'production';
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const extractSass = new ExtractTextPlugin({
-  filename: 'style.[contenthash].css',
-  disable: isDev,
-});
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
-  devtool: isDev ? 'source-map' : false,
   resolve: {
     modules: [path.resolve('./src'), path.resolve('./node_modules')],
   },
   entry: {
-    vendor: ['babel-polyfill', 'react', 'react-dom'],
     main: ['./src/renderers/dom.js'],
-    styles: ['./src/renderers/styles.js'],
   },
   output: {
     path: path.resolve('public', 'bundles'),
@@ -32,40 +24,30 @@ const config = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['react', 'env', 'stage-2'],
-          },
         },
       },
-
       {
         test: /\.scss$/,
-        use: extractSass.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true,
-              },
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true,
-              },
-            },
-          ],
-          // use style-loader in development
-          fallback: 'style-loader',
-        }),
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   plugins: [
-    extractSass,
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
+    new MiniCssExtractPlugin({
+      filename: isDev ? '[name].css' : '[name].[hash].css',
+      chunkFilename: isDev ? '[id].css' : '[id].[hash].css',
     }),
     new webpack.HashedModuleIdsPlugin(),
     new WebpackChunkHash(),

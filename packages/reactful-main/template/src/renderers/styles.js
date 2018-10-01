@@ -1,1 +1,0 @@
-require('../styles/index.scss');
