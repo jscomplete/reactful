@@ -1,0 +1,11 @@
+$main: #555;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  #root {
+    color: $main;
+  }
+}

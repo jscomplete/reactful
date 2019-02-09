@@ -2,14 +2,16 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "format": "prettier-eslint \"packages/**/src/**/*.js\"  \"src/**/*.scss\" --write --trailing-comma es5"
+    "format": "prettier-eslint \"packages/**/src/**/*.js\"  \"src/**/*.scss\" --write"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.6.1",
-    "eslint-plugin-react": "^7.11.1",
-    "lerna": "^3.4.0",
-    "prettier": "^1.14.3",
-    "prettier-eslint-cli": "^4.4.0"
+    "babel-eslint": "latest",
+    "eslint": "latest",
+    "eslint-plugin-react": "latest",
+    "eslint-plugin-react-hooks": "latest",
+    "lerna": "latest",
+    "lodash": "latest",
+    "prettier": "latest",
+    "prettier-eslint-cli": "latest"
   }
 }

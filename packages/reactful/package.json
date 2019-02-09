@@ -1,0 +1,15 @@
+{
+  "name": "reactful",
+  "version": "2.0.4",
+  "description": "An opinionated CLI for full-stack server-rendered React applications",
+  "repository": "jscomplete/reactful",
+  "author": "Samer Buna <samer@jscomplete.com>",
+  "license": "MIT",
+  "bin": {
+    "reactful": "bin/reactful.js"
+  },
+  "dependencies": {
+    "fs-jetpack": "^2.2.2",
+    "prompt-sync": "^4.1.6"
+  }
+}

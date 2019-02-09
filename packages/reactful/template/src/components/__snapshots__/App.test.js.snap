@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly 1`] = `
+<div>
+  <h1>
+    TEST
+  </h1>
+  This is a sample stateful and server-side rendered React application.
+  <br />
+  <br />
+  Here is a button that will track how many times you click it:
+  <br />
+  <br />
+  <button
+    onClick={[Function]}
+  >
+    0
+  </button>
+</div>
+`;
