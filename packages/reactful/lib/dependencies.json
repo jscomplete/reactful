@@ -40,7 +40,6 @@
     "eslint-plugin-react-hooks",
     "jest",
     "nodemon",
-    "prettier-eslint-cli",
     "reactful"
   ]
 }

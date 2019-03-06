@@ -12,7 +12,6 @@ module.exports = function reactfulInit(config) {
       private: true,
       scripts: {
         eslint: 'eslint "src/**/*.js"',
-        format: 'prettier-eslint "src/**/*.js" "src/**/*.scss" --write',
         start: `concurrently "${pmCommand} run dev-server" "${pmCommand} run dev-bundle"`,
         test: 'jest',
 
