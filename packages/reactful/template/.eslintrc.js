@@ -8,6 +8,11 @@ module.exports = {
     jest: true,
   },
   extends: ['eslint:recommended', 'plugin:react/recommended'],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   parserOptions: {
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
@@ -20,6 +25,7 @@ module.exports = {
     'react/prop-types': ['off'],
     'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }],
     'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     indent: ['error', 2, { SwitchCase: 1 }],
     'comma-dangle': ['error', 'always-multiline'],
     'linebreak-style': ['error', 'unix'],

@@ -45,7 +45,7 @@ All of these commands will also create a jest snapshot test for the generated co
 
 ### Updating Existing React App
 
-While in a React application that's created with this tool, you can always revert things back the default configurations with the init command. You can also use this command in an empty directory.
+While in a React application that's created with this tool, you can always revert things back to the default configurations with the `init` command. You can also use this command in an empty directory.
 
 ```sh
 cd my-awesome-react-app

@@ -37,6 +37,8 @@ For problems and questions: https://jscomplete.com/help
 module.exports = (command, args) => {
   switch (command) {
     case 'help':
+    case '-h':
+    case '--help':
       printHelp();
       break;
     case 'open':

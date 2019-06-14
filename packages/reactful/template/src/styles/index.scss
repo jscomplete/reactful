@@ -1,6 +1,8 @@
 $main: #555;
 
-* {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
