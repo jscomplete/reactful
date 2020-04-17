@@ -52,10 +52,7 @@ async function main() {
 
   if (firstArg === 'new') {
     config.appPath = otherArgs[0];
-    config.appName = otherArgs[0]
-      .replace(/\/$/, '')
-      .split('/')
-      .slice(-1)[0];
+    config.appName = otherArgs[0].replace(/\/$/, '').split('/').slice(-1)[0];
   }
 
   if (!['init', 'new'].includes(firstArg)) {
@@ -64,10 +61,7 @@ async function main() {
     }
 
     config.appPath = firstArg;
-    config.appName = firstArg
-      .replace(/\/$/, '')
-      .split('/')
-      .slice(-1)[0];
+    config.appName = firstArg.replace(/\/$/, '').split('/').slice(-1)[0];
   }
 
   reactfulCreate();

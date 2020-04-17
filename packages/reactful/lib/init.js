@@ -11,24 +11,24 @@ module.exports = function reactfulInit(config) {
       version: '1.0.0',
       private: true,
       scripts: {
-        eslint: 'eslint "src/**/*.js"',
-        start: `concurrently "${pmCommand} run dev-server" "${pmCommand} run dev-bundle"`,
-        test: 'jest',
+        'eslint': 'eslint "src/**/*.js"',
+        'start': `concurrently "${pmCommand} run dev:server" "${pmCommand} run dev:bundle"`,
+        'test': 'jest',
 
-        'dev-server':
+        'dev:server':
           'cross-env NODE_PATH=./src nodemon --exec "babel-node src/server/server.js" --ignore .reactful.json --ignore public/',
-        'dev-bundle': 'webpack -wd',
+        'dev:bundle': 'webpack -wd',
         'verify-tests': 'jest --coverage',
 
-        'build-react': 'cross-env NODE_ENV=production webpack --progress -p',
-        'build-node':
+        'build:react': 'cross-env NODE_ENV=production webpack --progress -p',
+        'build:node':
           'babel src -d build --config-file ./babel-node.config.js --copy-files',
-        'build-all': `${pmCommand} install && ${pmCommand} run build-react && ${pmCommand} run build-node`,
+        'build:all': `${pmCommand} install && ${pmCommand} run build:react && ${pmCommand} run build:node`,
 
-        'prod-start': `cross-env NODE_ENV=production NODE_PATH=./build pm2 start -i max build/server/server.js --update-env --name ${appName}Prod`,
-        'prod-stop': `pm2 stop ${appName}Prod`,
-        'prod-reload': `pm2 reload --update-env ${appName}Prod`,
-        'prod-logs': `pm2 logs --update-env ${appName}Prod`,
+        'prod:start': `cross-env NODE_ENV=production NODE_PATH=./build pm2 start -i max build/server/server.js --update-env --name ${appName}Prod`,
+        'prod:stop': `pm2 stop ${appName}Prod`,
+        'prod:reload': `pm2 reload --update-env ${appName}Prod`,
+        'prod:logs': `pm2 logs --update-env ${appName}Prod`,
       },
       jest: {
         modulePaths: ['./src'],

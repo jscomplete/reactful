@@ -1,4 +1,6 @@
-$main: #555;
+:root {
+  --color-main: #333;
+}
 
 *,
 *:before,
@@ -7,7 +9,5 @@ $main: #555;
 }
 
 body {
-  #root {
-    color: $main;
-  }
+  color: var(--color-main);
 }

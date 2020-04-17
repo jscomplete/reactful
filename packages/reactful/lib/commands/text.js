@@ -1,54 +1,52 @@
 /* eslint indent: 'off' */
 
-exports.rcc = componentName => `import React from 'react';
+exports.rcc = (componentName) => `import * as React from 'react';
 
-export class ${componentName} extends React.Component {
+export default class ${componentName} extends React.Component {
   render() {
     return (
       <div>
-        {${componentName}}...
+        ${componentName}...
       </div>
     );
   }
 }`;
 
-exports.rpc = componentName => `import React from 'react';
+exports.rpc = (componentName) => `import * as React from 'react';
 
-export class ${componentName} extends React.PureComponent {
+export default class ${componentName} extends React.PureComponent {
   render() {
     return (
       <div>
-        {${componentName}}...
+        ${componentName}...
       </div>
     );
   }
 }`;
 
-exports.rfc = componentName => `import React from 'react';
+exports.rfc = (componentName) => `import * as React from 'react';
 
-export function ${componentName}({}) {
+export default function ${componentName}() {
   return (
     <div>
-      {${componentName}}...
+      ${componentName}...
     </div>
   );
 }`;
 
 exports.jest = {};
 
-exports.jest.default = componentName => `import React from 'react';
-import renderer from 'react-test-renderer';
+exports.jest.default = (componentName) => `import * as React from 'react';
+import { render, cleanup } from '@testing-library/react';
 
 import ${componentName} from './${componentName}';
 
+afterEach(cleanup);
+
 describe('${componentName}', () => {
+  it('renders', () => {
+    const { asFragment } = render(<${componentName} />);
 
-  it('renders correctly', () => {
-    const tree = renderer.create(
-      <${componentName} />
-    ).toJSON();
-
-    expect(tree).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
-
 });`;

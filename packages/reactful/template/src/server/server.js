@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
@@ -20,10 +18,17 @@ app.use(bodyParser.json());
 
 app.locals.serialize = serialize;
 
-try {
-  app.locals.gVars = require('../../.reactful.json');
-} catch (err) {
-  app.locals.gVars = {};
+if (config.isDev) {
+  app.locals.gVars = {
+    main: ['main.css', 'main.js'],
+    vendor: 'vendor.js',
+  };
+} else {
+  try {
+    app.locals.gVars = require('../../.reactful.json');
+  } catch (err) {
+    console.error('Reactful did not find Webpack generated assets');
+  }
 }
 
 app.get('/', async (req, res) => {
@@ -37,14 +42,5 @@ app.get('/', async (req, res) => {
 });
 
 app.listen(config.port, config.host, () => {
-  fs.writeFileSync(
-    path.resolve('.reactful.json'),
-    JSON.stringify(
-      { ...app.locals.gVars, host: config.host, port: config.port },
-      null,
-      2
-    )
-  );
-
   console.info(`Running on ${config.host}:${config.port}...`);
 });

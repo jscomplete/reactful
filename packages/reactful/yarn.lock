@@ -25,10 +25,10 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
-fs-jetpack@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/fs-jetpack/-/fs-jetpack-2.2.2.tgz#c3737c585a618d8d636f76165c881b985493d6fd"
-  integrity sha512-USJrUxck7SIXSvYPzU5fuR5iqLHRDSzb0kHvCJlQhUGEVai3P9yZDu/2b+bAzprbWLCc2YcslxBLBUInDmYkYA==
+fs-jetpack@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/fs-jetpack/-/fs-jetpack-2.2.3.tgz#75113dcf1e4a9c7c7275732f2b7305656df114c8"
+  integrity sha512-MldfoKMz2NwpvP3UFfVXLp4NCncy9yxGamgBK6hofFaisnWoGvgkAyTtKwcq++leztgZuM4ywrZEaUtiyVfWgA==
   dependencies:
     minimatch "^3.0.2"
     rimraf "^2.6.3"
@@ -82,10 +82,10 @@ path-is-absolute@^1.0.0:
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
   integrity sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
 
-prompt-sync@^4.1.6:
-  version "4.1.7"
-  resolved "https://registry.yarnpkg.com/prompt-sync/-/prompt-sync-4.1.7.tgz#8465d6a83ce35db7fcc5cb73936ba54a8f2b8517"
-  integrity sha512-EPdLWdZCgNAxF8haGg1CKOL/F5KZiRtuqgoWc1EGefX+fX+5qsB8vI52+qzl1jgADO6AiLaIcioicxRgQEy5xA==
+prompt-sync@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/prompt-sync/-/prompt-sync-4.2.0.tgz#0198f73c5b70e3b03e4b9033a50540a7c9a1d7f4"
+  integrity sha512-BuEzzc5zptP5LsgV5MZETjDaKSWfchl5U9Luiu8SKp7iZWD5tZalOxvNcZRwv+d2phNFr8xlbxmFNcRKfJOzJw==
   dependencies:
     strip-ansi "^5.0.0"
 

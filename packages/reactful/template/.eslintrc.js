@@ -7,7 +7,11 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+  ],
   settings: {
     react: {
       version: 'detect',
@@ -15,7 +19,6 @@ module.exports = {
   },
   parserOptions: {
     ecmaFeatures: {
-      experimentalObjectRestSpread: true,
       jsx: true,
     },
     sourceType: 'module',
@@ -24,24 +27,16 @@ module.exports = {
   rules: {
     'react/prop-types': ['off'],
     'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }],
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
-    indent: ['error', 2, { SwitchCase: 1 }],
-    'comma-dangle': ['error', 'always-multiline'],
-    'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
     'no-console': ['warn', { allow: ['info', 'error'] }],
-    curly: 'error',
+    'curly': 'error',
     'no-else-return': 'error',
     'no-unneeded-ternary': 'error',
     'no-useless-return': 'error',
     'no-var': 'error',
     'one-var': ['error', 'never'],
-    'prefer-arrow-callback': 'error',
     'prefer-const': 'error',
-    strict: 'error',
+    'strict': 'error',
     'symbol-description': 'error',
-    yoda: ['error', 'never', { exceptRange: true }],
+    'yoda': ['error', 'never', { exceptRange: true }],
   },
 };

@@ -20,9 +20,6 @@ cd my-awesome-react-app
 # To start the app for development (watchers for node/webpack)
 npm start
 
-# To open the app in browser (default is localhost:4242)
-npx reactful open
-
 # To run all tests
 npm test
 

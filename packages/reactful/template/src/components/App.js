@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 
 export function App({ initialData }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = React.useState(0);
   return (
     <div>
       <h1>{initialData.appName}</h1>
@@ -11,7 +11,9 @@ export function App({ initialData }) {
       Here is a button that will track how many times you click it:
       <br />
       <br />
-      <button onClick={() => setCount(count + 1)}>{count}</button>
+      <button title="increment" onClick={() => setCount(count + 1)}>
+        {count}
+      </button>
     </div>
   );
 }
