@@ -1,5 +1,5 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
+  parser: 'babel-eslint',
   env: {
     browser: true,
     commonjs: true,
@@ -14,16 +14,19 @@ module.exports = {
     },
     sourceType: 'module',
   },
+  plugins: ['react', 'react-hooks'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+  ],
   settings: {
     react: {
       version: '16.x',
     },
   },
-  plugins: ['react-hooks', 'react'],
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-  ],
-  rules: {},
+  rules: {
+    'react/prop-types': ['off'],
+    'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }],
+  },
 };

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders ansd increments counter 2`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      TEST
+    </h1>
+    This is a sample stateful and server-side rendered React application.
+    <br />
+    <br />
+    Here is a button that will track how many times you click it:
+    <br />
+    <br />
+    <button
+      title="increment"
+    >
+      1
+    </button>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "commonjs",
+    "lib": ["dom", "es2019", "scripthost"],
+    "outDir": "build",
+    "baseUrl": "src",
+    "jsx": "react",
+    "alwaysStrict": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "preserveSymlinks": true,
+    "resolveJsonModule": true,
+    "noImplicitThis": true
+  },
+  "include": ["src"]
+}

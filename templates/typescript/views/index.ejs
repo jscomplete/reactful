@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%- pageData.title %></title>
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/bundles/<%- gVars['main'][0] -%>">
+  <script type="text/javascript">
+    window.__R_DATA = <%- serialize({ initialData }, { isJSON: true }); %>
+  </script>
+</head>
+<body>
+  <div id="root"><%- initialMarkup -%></div>
+  <script src="/bundles/<%- gVars['vendor'] -%>" type="text/javascript"></script>
+  <script src="/bundles/<%- gVars['main'][1] -%>" type="text/javascript"></script>
+</body>
+</html>

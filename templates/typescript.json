@@ -1,0 +1,39 @@
+{
+  "main": [
+    "body-parser",
+    "cross-env",
+    "css-loader",
+    "ejs",
+    "express",
+    "mini-css-extract-plugin",
+    "morgan",
+    "pm2",
+    "react-dom",
+    "react",
+    "regenerator-runtime",
+    "serialize-javascript",
+    "source-map-loader",
+    "style-loader",
+    "ts-loader",
+    "typescript",
+    "webpack-chunk-hash",
+    "webpack-cli",
+    "webpack"
+  ],
+  "dev": [
+    "@testing-library/jest-dom",
+    "@testing-library/react",
+    "@testing-library/user-event",
+    "@typescript-eslint/eslint-plugin",
+    "@typescript-eslint/parser",
+    "concurrently",
+    "eslint-plugin-react-hooks",
+    "eslint-plugin-react",
+    "eslint",
+    "jest",
+    "reactful",
+    "ts-jest",
+    "ts-node-dev",
+    "typesync"
+  ]
+}

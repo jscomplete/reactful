@@ -1,0 +1,10 @@
+{
+  "main": ["react@16", "react-dom@16"],
+  "dev": [
+    "parcel-bundler",
+    "eslint",
+    "eslint-plugin-react",
+    "eslint-plugin-react-hooks",
+    "reactful"
+  ]
+}

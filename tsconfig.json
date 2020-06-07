@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["dom", "es2020", "scripthost"],
+    "outDir": "lib",
+    "rootDir": "src",
+    "baseUrl": "src",
+    "jsx": "react",
+    "alwaysStrict": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "preserveSymlinks": true,
+    "resolveJsonModule": true,
+    "noImplicitThis": true
+  },
+  "include": ["src"]
+}

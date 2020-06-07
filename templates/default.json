@@ -1,0 +1,38 @@
+{
+  "main": [
+    "@babel/cli",
+    "@babel/core",
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/runtime",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-runtime",
+    "babel-loader",
+    "body-parser",
+    "cross-env",
+    "css-loader",
+    "ejs",
+    "express@4",
+    "mini-css-extract-plugin",
+    "morgan",
+    "pm2",
+    "react@16",
+    "react-dom@16",
+    "regenerator-runtime",
+    "serialize-javascript",
+    "style-loader",
+    "webpack@4",
+    "webpack-chunk-hash",
+    "webpack-cli"
+  ],
+  "dev": [
+    "@babel/node",
+    "babel-eslint",
+    "concurrently",
+    "eslint",
+    "eslint-plugin-react",
+    "eslint-plugin-react-hooks",
+    "nodemon",
+    "reactful"
+  ]
+}

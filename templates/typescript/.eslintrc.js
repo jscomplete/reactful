@@ -14,16 +14,20 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  settings: {
-    react: {
-      version: '16.x',
-    },
-  },
   plugins: ['react-hooks', 'react'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
   ],
-  rules: {},
+  settings: {
+    react: {
+      version: '16.x',
+    },
+  },
+  rules: {
+    'react/prop-types': 'off',
+    'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }],
+  },
 };
