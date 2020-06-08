@@ -28,7 +28,13 @@ export function commandExists(command: string): boolean {
 
 const prompt = promptSync();
 
-export function copy({ appPath, template }: configType): void {
+export function copy({
+  appPath,
+  template,
+}: {
+  appPath: string;
+  template: string;
+}): void {
   const templateDir = path.resolve(
     __dirname,
     '..',

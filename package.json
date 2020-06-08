@@ -1,6 +1,6 @@
 {
   "name": "reactful",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "An opinionated practical CLI for developing full-stack server-rendered React applications. You can use it to generate an independent React application (optionally with TypeScript) that's fully-configured to render on both client and server. You can also use it to render simple template applications (without SSR).",
   "repository": "jscomplete/reactful",
   "author": "Samer Buna <samer@jscomplete.com>",
@@ -21,8 +21,8 @@
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
-    "@typescript-eslint/eslint-plugin": "^3.1.0",
-    "@typescript-eslint/parser": "^3.1.0",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
     "eslint": "^7.2.0",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",

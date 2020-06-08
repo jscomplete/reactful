@@ -4,7 +4,10 @@ import { spawnSync } from 'child_process';
 export async function runCommand({
   useYarn,
   script,
-}: configType): Promise<void> {
+}: {
+  useYarn: boolean;
+  script: string;
+}): Promise<void> {
   const pmCommand = useYarn ? 'yarn' : 'npm';
 
   spawnSync(`${pmCommand} run ${script}`, {
