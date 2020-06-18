@@ -36,7 +36,7 @@ program
   }
 
   program
-    .command('create <app-name>')
+    .command('create <app-name>', { isDefault: true })
     .alias('')
     .alias('new')
     .description('creata a new reactful project')
@@ -106,9 +106,11 @@ program
     .action((port = '1234') => openApp(`http://localhost:${port}`));
 
   program
-    .command('run <script>', { isDefault: true })
+    .command('. <script>')
     .description('run a script in the current directroy')
-    .action((script) => runCommand({ useYarn: yarnExists, script }));
+    .action((script) => {
+      runCommand({ useYarn: yarnExists, script });
+    });
 
   await program.parseAsync();
 })();

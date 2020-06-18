@@ -1,18 +1,19 @@
 {
   "name": "reactful",
-  "version": "3.0.1",
+  "version": "3.1.3",
   "description": "An opinionated practical CLI for developing full-stack server-rendered React applications. You can use it to generate an independent React application (optionally with TypeScript) that's fully-configured to render on both client and server. You can also use it to render simple template applications (without SSR).",
   "repository": "jscomplete/reactful",
   "author": "Samer Buna <samer@jscomplete.com>",
   "license": "MIT",
   "scripts": {
     "eslint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
-    "format": "prettier --write src/ \"*.{ts,tsx,js,json}\"",
-    "test": "jest",
+    "format": "prettier --write src/ templates/ \"*.{ts,tsx,js,json}\"",
+    "test": "jest src/**/*",
     "build": "rm -rf lib && tsc --sourceMap false --skipLibCheck true"
   },
   "bin": {
-    "reactful": "lib/bin/reactful.js"
+    "reactful": "lib/bin/reactful.js",
+    "rr": "lib/bin/reactful.js"
   },
   "dependencies": {
     "commander": "^5.1.0",
@@ -20,9 +21,9 @@
     "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.3",
-    "@typescript-eslint/eslint-plugin": "^3.2.0",
-    "@typescript-eslint/parser": "^3.2.0",
+    "@types/jest": "^26.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
     "eslint": "^7.2.0",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
@@ -30,7 +31,7 @@
     "prettier": "^2.0.5",
     "ts-jest": "^26.1.0",
     "ts-node": "^8.10.2",
-    "ts-node-dev": "^1.0.0-pre.44",
+    "ts-node-dev": "^1.0.0-pre.49",
     "typescript": "^3.9.5",
     "typesync": "^0.7.0"
   }
